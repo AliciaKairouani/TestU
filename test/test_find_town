@@ -2,7 +2,7 @@ from app.app import find_town
 import pandas as pd 
 
 
-   
+
 def test_find_town():
         df = pd.DataFrame({
             'nom_commune_postal': ['ANGLEFORT', 'BRESSOLLES', 'VARAMBON'],
