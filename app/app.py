@@ -1,16 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy  as np
+import requete
 
-def texte():
+def texte(value = "Paris"):
     'ecrire le nom de la ville choisie'
-    ville = st.text_input('Entrée le nom de votre ville', 'Enter text')
+    ville = st.text_input('Entrée le nom de votre ville', value = value)
     return ville
 
-def find_town(df ,name):
-    "trouver info sur la ville"
-    choix = df.loc[df['nom_commune_postal'] == name]
-    return choix
 
 
 st.title("Meteo Ville")
@@ -30,9 +27,9 @@ with col2:
     if st.button("Submit"):
         data_ville = ville
 
-df = pd.read_csv("communes-departement-region.csv")
-choix = find_town(df, data_ville)
-st.map(choix,latitude=df.latitude, longitude=df.longitude)
+lon,lat = requete.get_latitude_longitude(ville)
+
+st.map(latitude= lat, longitude= lon)
 
 
 
