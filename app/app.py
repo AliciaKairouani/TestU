@@ -1,35 +1,30 @@
-import streamlit as st
-import pandas as pd
-import numpy  as np
-import requete
+# import streamlit as st
+# import pandas as pd
+# import numpy  as np
+# import requete
 
-def texte(value = "Paris"):
-    'ecrire le nom de la ville choisie'
-    ville = st.text_input('Entrée le nom de votre ville', value = value)
-    return ville
+# def texte(value = "Paris"):
+#     'Entrez le nom de votre pays'
+#     ville = st.text_input('Entrée le nom de votre ville', value = value)
+#     return ville
 
+# st.title("Meteo Ville")
 
+# col1, col2= st.columns(2)
 
-st.title("Meteo Ville")
+# with col1:
+#     # Créer des widgets pour le nom de la ville
+#     ville = texte()
 
-col1, col2= st.columns(2)
+#     # Afficher le nom choisie
+#     st.write('Nom de votre ville:', ville)
 
-with col1:
-    # Créer des widgets pour le nom de la ville
-    ville = texte()
+# with col2:
+#     st.write(' ')
 
-    # Afficher le nom choisie
-    st.write('Nom de votre ville:', ville)
+#     if st.button("Submit"):
+#         data_ville = ville
 
-with col2:
-    st.write(' ')
+# lon,lat = requete.get_latitude_longitude(ville)
 
-    if st.button("Submit"):
-        data_ville = ville
-
-lon,lat = requete.get_latitude_longitude(ville)
-
-st.map(latitude= lat, longitude= lon)
-
-
-
+# st.map(latitude= lat, longitude= lon)
