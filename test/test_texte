@@ -1,0 +1,12 @@
+from app.app import texte
+import pytest  
+from streamlit.testing import TestClient
+
+def test_texte():
+    client = TestClient(texte)
+
+    with client:
+        # Simulez l'entrée utilisateur pour le texte de la ville
+        client.write("Paris")
+
+    assert "Paris" in client.get_delta_from_queue().new_element_list[0].content.body
